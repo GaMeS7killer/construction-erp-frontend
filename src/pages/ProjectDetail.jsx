@@ -122,7 +122,7 @@ function ProjectDetail() {
     setError('')
     try {
       const [projectRes, materialsRes, laborRes, equipmentRes] = await Promise.all([
-        axios.get(`http://127.0.0.1:8000/api/v1/projects/${id}`),
+        axios.get(`https://construction-erp-backend-production.up.railway.app/api/v1/projects/${id}`),
         getMaterials(),
         getLaborTypes(),
         getEquipment(),
@@ -144,7 +144,7 @@ function ProjectDetail() {
 
   const loadProject = async () => {
     try {
-      const res = await axios.get(`http://127.0.0.1:8000/api/v1/projects/${id}`)
+      const res = await axios.get(`https://construction-erp-backend-production.up.railway.app/api/v1/projects/${id}`)
       const projectData = extractData(res.data)
       setProject(projectData)
       setLatestQuotation(projectData.latest_quotation || null)
